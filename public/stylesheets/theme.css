@@ -1,0 +1,134 @@
+/**
+ * Let's begin. We start by animating... well, everything.
+ */
+/*@import "compass/css3";*/
+
+* {
+  -webkit-transition: all 1s;
+  /*margin: 10%;
+  padding: 1em;
+  box-sizing: border-box;*/
+}
+/**
+ * That didn't do much. But you'll see.
+ *
+ * Black on white is really boring,
+ * so let's do something about it.
+ */
+
+html {
+  background: #1d2021;
+  height:100%;
+}
+
+body {
+    font: 13px Helvetica, Arial;
+    color: #ebdbb2;
+    height:100%;
+    /*text-align: center*/
+    /*background: #008080;*/
+}
+
+.msg-info{
+    color: #d3869b;
+    font-style: italic;
+    /*display: table-cell;*/
+    /*width: 200px;*/
+    text-align: right;
+}
+
+.msg-content{
+    /*display: table-cell;*/
+    /*width: 200px;*/
+    text-align: left;
+}
+
+.msg-prompt{
+    font-weight: bold;
+    color: #458588;
+    /*text-align: left;*/
+}
+
+#input-wrap{
+    background-color: #282828;
+    display: block;
+    margin: auto;
+    /*position: fixed;*/
+    /*height: 80%;*/
+    overflow: hidden;
+    padding-bottom: 0.5em;
+    width: 80%;
+    font-size: 1.5em;
+    color: #ebdbb2;
+}
+
+#input-wrap .msg-info{
+    color: #83c07c;
+}
+
+form input {
+    background-color: #282828;
+    border: 0;
+    padding: 0;
+    width: 90%;
+    margin: 0;
+    font-size: 1em;
+    color: #ebdbb2;
+    outline: none;
+}
+form button {
+    display: none;
+}
+
+#message-wrap {
+    background-color: #282828;
+    display: block;
+    margin: auto;
+    /*position: fixed;*/
+    height: 80%;
+    overflow: hidden;
+    margin-top: 5%;
+    width: 80%;
+}
+#messages {
+    width: 105%;
+    height: 95%;
+    overflow-y: scroll;
+    /*padding-right: 17px;*/
+    font-size: 1.5em;
+}
+#messages div {
+    padding: 5px 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .msg-info {
+        text-align: left;
+    }
+}
+
+
+/* animations */
+
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #d65d0e; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}

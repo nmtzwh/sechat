@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>sechat</title>
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/simplegrid.css">
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/theme.css">
+  </head>
+  <body>
+      <div id="message-wrap">
+          <div class="grid grid-pad" id="messages">
+              <div class="col-1-1 msg-prompt">
+                  <span id="introduction"></span>
+              </div>
+          </div>
+      </div>
+
+    <!-- <div id='prompt'>
+        <p>PLease enter your nickname: </p>
+    </div> -->
+    <div class="grid grid-pad" id="input-wrap">
+        <div class="col-3-12 msg-info">
+            <span>Nickname? </span>
+        </div>
+        <div class="col-9-12 input-form">
+            <form action="">
+              <input id="m" autocomplete="off" autofocus/><button>Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/javascripts/bundle.js"></script>
+    <script src="/static/javascripts/chat_bundle.js"></script>
+    <script src="/static/javascripts/jquery.js"></script>
+    <script src="/static/javascripts/chat.js"></script>
+    <script>
+        // introduction
+        var intro = new Array(
+            "This is a simple chat web application based on Node.js",
+            "Anyone who wants a glance at the end-to-end encrypted messaging can test it.",
+            "It's in its early development stage (NOT SECURE for now).",
+            "No sign up is requied and  everything will be destroyed after disconnection.",
+            "Please type your **nickname** below and enjoy it :)"
+        );
+        var iSpeed = 40; // time delay of print out
+        var iIndex = 0; // start printing array at this posision
+        var iArrLength = intro[0].length; // the length of the text array
+        var iScrollAt = 20; // start scrolling up at this many lines
+
+        var iTextPos = 0; // initialise text position
+        var sContents = ''; // initialise contents variable
+        var iRow; // initialise current row
+
+        function typewriter()
+        {
+         sContents =  ' ';
+         iRow = Math.max(0, iIndex-iScrollAt);
+         var destination = document.getElementById("introduction");
+
+         while ( iRow < iIndex ) {
+          sContents += intro[iRow++] + '<br />';
+         }
+         destination.innerHTML = sContents + intro[iIndex].substring(0, iTextPos) + "_";
+         if ( iTextPos++ == iArrLength ) {
+          iTextPos = 0;
+          iIndex++;
+          if ( iIndex != intro.length ) {
+           iArrLength = intro[iIndex].length;
+           setTimeout("typewriter()", 500);
+          }
+         } else {
+          setTimeout("typewriter()", iSpeed);
+         }
+        }
+        typewriter();
+    </script>
+  </body>
+</html>
