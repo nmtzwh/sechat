@@ -17,8 +17,8 @@ node app.js
 
 ## todo list
 
-- [] multiple chat rooms
-- [] browser notifications
-- [] multi-line inputs
-- [] send/receive images and files
-- [] custom themes
+- [ ] multiple chat rooms
+- [ ] browser notifications
+- [ ] multi-line inputs
+- [ ] send/receive images and files
+- [ ] custom themes
