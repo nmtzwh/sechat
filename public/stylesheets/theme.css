@@ -22,9 +22,10 @@ html {
 }
 
 body {
-    font: 13px Helvetica, Arial;
+    font: Helvetica, Arial;
     color: #ebdbb2;
     height:100%;
+    overflow: hidden;
     /*text-align: center*/
     /*background: #008080;*/
 }
@@ -58,7 +59,7 @@ body {
     overflow: hidden;
     padding-bottom: 0.5em;
     width: 80%;
-    font-size: 1.5em;
+    font-size: 1em;
     color: #ebdbb2;
 }
 
@@ -81,22 +82,29 @@ form button {
 }
 
 #message-wrap {
-    background-color: #282828;
     display: block;
     margin: auto;
     /*position: fixed;*/
     height: 80%;
     overflow: hidden;
     margin-top: 5%;
-    width: 80%;
+    /*width: 80%;*/
 }
 #messages {
-    width: 105%;
-    height: 95%;
-    overflow-y: scroll;
+    display: block;
+    margin: auto;
+    background-color: #282828;
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
     /*padding-right: 17px;*/
-    font-size: 1.5em;
+    font-size: 1em;
 }
+
+#messages:hover {
+    overflow-y: auto;
+}
+
 #messages div {
     padding: 5px 5px;
 }
