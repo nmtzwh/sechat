@@ -34,6 +34,18 @@
                   $('#m').val('');
                   return false;
                   break;
+            //   case ':':
+            //       var inputCommand = inputVal.slice(1);
+            //       switch (inputCommand){
+            //           case 'exit':
+            //             window.open('','_self').close();
+            //             break;
+            //           default:
+            //             break;
+            //       }
+            //       $('#m').val('');
+            //       return false;
+            //       break;
               case '@':
                   if (inputVal.length === 1){
                       updateCurrentChatter();

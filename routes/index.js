@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/chat', function(req, res, next) {
   // res.render('index', { title: 'Express' });
   res.sendFile(path.resolve(__dirname + '/../views/index.html'));
 });
