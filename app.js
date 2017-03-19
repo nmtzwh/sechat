@@ -76,6 +76,13 @@ io.on('connection', function(socket){
     var client = {};
     // on initialization store each client information
     socket.on('initialization', function(info){
+        var inputval = info['name'];
+        var inputAlphaNum = inputval.replace(/[^a-z0-9]/gi, '');
+        if (inputval != inputAlphaNum){
+            var errMsg = 'Only alphanumeric nicknames are accepted! ';
+            socket.emit('initialization', {msg: errMsg});
+            return;
+        }
         for (let c of clientList){
             if (info['name'].toLowerCase() === c['name'].toLowerCase()){
                 var errMsg = 'Conflict user name! Please choose a new nickname. '
@@ -106,11 +113,14 @@ io.on('connection', function(socket){
                 return;
                 break;
             case 'private':
+                let toSend = {from: message['from'], to: message['to'], en_msg: message['en_msg']};
+                socket.to(clientSocketObject[message['to']]).emit('chat message', toSend);
                 return;
                 break;
             default:
                 for (let d of message['data']){
-                    let toSend = {from: message['from'], en_msg: d['en_msg']};
+                    if (message.from === d.to) continue;
+                    let toSend = {from: message['from'], to: 'all', en_msg: d['en_msg']};
                     // console.log('from ' + toSend.from + ' to ' + d['to']);
                     // console.log('from ' + toSend.from + ' to ' + clientSocketObject[d['to']] + toSend.en_msg);
                     io.to(clientSocketObject[d['to']]).emit('chat message', toSend);
@@ -128,7 +138,9 @@ io.on('connection', function(socket){
         if (index > -1){
             clientList.splice( index , 1);
         }
-        socket.broadcast.emit('delete user', client.name);
+        for (let user of clientList){
+            socket.to(clientSocketObject[user.name]).emit('delete user', client.name);
+        }
     });
 
     // find object in array by its values

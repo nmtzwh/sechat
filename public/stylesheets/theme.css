@@ -50,6 +50,13 @@ body {
     /*text-align: left;*/
 }
 
+.userspan{
+    /*background-color:  #665c54;*/
+    color: #689d6a;
+    margin-left: 2em;
+    /*padding: 0.5em;*/
+}
+
 #input-wrap{
     background-color: #282828;
     display: block;
