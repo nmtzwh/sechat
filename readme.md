@@ -22,5 +22,6 @@ node app.js
 - [x] browser notifications
 - [ ] mobile friendly design (font size & screen size)
 - [ ] multi-line inputs
-- [ ] send/receive images and files
+- [x] send/receive images (url) 
+- [ ] send/receive files (security concerns)
 - [ ] custom themes
