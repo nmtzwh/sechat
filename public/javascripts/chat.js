@@ -1,3 +1,43 @@
+  window.addEventListener('load', function () {
+    // At first, let's check if we have permission for notification
+    // If not, let's ask for it
+    if (window.Notification && Notification.permission !== "granted") {
+        Notification.requestPermission(function (status) {
+        if (Notification.permission !== status) {
+            Notification.permission = status;
+        }
+        });
+    }
+  });
+
+  function createNotification(msg, tag='sechat notification'){
+    // If the user agreed to get notified
+    // Let's try to send ten notifications
+    if (window.Notification && Notification.permission === "granted") {
+        var n = new Notification(msg, {tag: tag});
+    }
+
+    // If the user hasn't told if he wants to be notified or not
+    // Note: because of Chrome, we are not sure the permission property
+    // is set, therefore it's unsafe to check for the "default" value.
+    else if (window.Notification && Notification.permission !== "denied") {
+      Notification.requestPermission(function (status) {
+        // If the user said okay
+        if (status === "granted") {
+            var n = new Notification(msg, {tag: tag});
+        }
+      });
+    }
+
+    // auto dismiss
+    if (n !== undefined){
+        setTimeout(n.close.bind(n), 5000); 
+    }    
+  }
+
+  
+  
+  
   // functions in communication
   $(function () {
     // connected and broadcast this client name and public key
@@ -143,6 +183,7 @@
       var msg = decryptMeseage(from, data['en_msg']);
       // add message to pannel
       var data = {from: from, to: data['to'], msg: msg};
+      createNotification('new message from '+data.from);
       addMessage(data);
     });
 
@@ -150,7 +191,7 @@
     function updateCurrentChatter(user=undefined, type=undefined){
         var divPro = $('<div>').addClass('col-1-1 msg-prompt');
         // new user or deleted user 
-        if (user != undefined){
+        if (user !== undefined){
             if (type === 'new'){
                 divPro.append($('<span>').text(user + ' has joined the chat. '));
             }else{
