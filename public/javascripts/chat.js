@@ -281,6 +281,7 @@
         promptMessage('+ Type \'@\' for current online users');
         promptMessage('+ Type \'@name <messages>\' for private message');
         promptMessage('+ Type anything for public message');
+        promptMessage('+ Message \'![image_name](image_url)\' for sending images');
     }
 
     $('#message-wrap').on( "click", function() {
