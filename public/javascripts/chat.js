@@ -187,7 +187,7 @@
       var msg = decryptMeseage(from, data['en_msg']);
       // add message to pannel
       var data = {from: from, to: data['to'], msg: msg};
-      createNotification('new message from ' + data.from + ': ' + msg.slice(0,20));
+      createNotification('New message from ' + data.from + ': ' + msg.slice(0,20));
       addMessage(data);
     });
 
@@ -225,7 +225,7 @@
       // message plain text or markdown image
       var str = data.msg;
       if (str.slice(0,2) === '!['){
-        var imgurl = str.match(/((http[s]?):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+)/)[0];
+        var imgurl = str.match(/((http[s]?):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.\%]+)/)[0];
         var divContent = $('<div>').append($('<img>').attr('src', imgurl)).addClass('col-9-12 msg-content');
       }else{
         var divContent = $('<div>').append($('<span>').text(data.msg)).addClass('col-9-12 msg-content');

@@ -44,6 +44,12 @@ body {
     text-align: left;
 }
 
+.msg-content img{
+    /*display: table-cell;*/
+    width: 90%;
+    text-align: left;
+}
+
 .msg-prompt{
     font-weight: bold;
     color: #458588;
