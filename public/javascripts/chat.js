@@ -101,6 +101,10 @@
                     promptMessage('Please enter some message, seperated by white space. ');
                     return false;
                   }
+                  if (toMsg === ''){
+                    promptMessage('Please enter some message, seperated by white space. ');
+                    return false;
+                  }
                   // find user and encrypt
                   for (var c of clientList){
                       if (c.name === message['to']){
@@ -183,7 +187,7 @@
       var msg = decryptMeseage(from, data['en_msg']);
       // add message to pannel
       var data = {from: from, to: data['to'], msg: msg};
-      createNotification('new message from '+data.from);
+      createNotification('new message from ' + data.from + ': ' + msg.slice(0,20));
       addMessage(data);
     });
 
@@ -216,9 +220,16 @@
     };
 
     function addMessage(data){
-      // generate list item
+      // from who to who information
       var divInfo = $('<div>').append($('<span>').text(data.from.slice(0,8) + ' -> ' + data.to.slice(0,5) + ' % ')).addClass('col-3-12 msg-info');
-      var divContent = $('<div>').append($('<span>').text(data.msg)).addClass('col-9-12 msg-content');
+      // message plain text or markdown image
+      var str = data.msg;
+      if (str.slice(0,2) === '!['){
+        var imgurl = str.match(/((http[s]?):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+)/)[0];
+        var divContent = $('<div>').append($('<img>').attr('src', imgurl)).addClass('col-9-12 msg-content');
+      }else{
+        var divContent = $('<div>').append($('<span>').text(data.msg)).addClass('col-9-12 msg-content');
+      }
       $('#messages').append(divInfo);
       $('#messages').append(divContent);
       updateMessageList();

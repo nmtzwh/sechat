@@ -18,7 +18,9 @@ node app.js
 ## todo list
 
 - [ ] multiple chat rooms
+- [ ] connection fail problem (unstable network)
 - [x] browser notifications
+- [ ] mobile friendly design (font size & screen size)
 - [ ] multi-line inputs
 - [ ] send/receive images and files
 - [ ] custom themes
