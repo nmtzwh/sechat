@@ -31,13 +31,15 @@
 
     // auto dismiss
     if (n !== undefined){
-        setTimeout(n.close.bind(n), 5000); 
-    }    
+        setTimeout(n.close.bind(n), 5000);
+    }
   }
 
-  
-  
-  
+// var emoji = require ? require('emoji-parser') : window.emojiParser;
+
+console.log(parseEmoji('This is a :telephone: :smiley[:D]:', 'http://example.com/emoji/images'));
+
+
   // functions in communication
   $(function () {
     // connected and broadcast this client name and public key
@@ -194,7 +196,7 @@
     // update online user list
     function updateCurrentChatter(user=undefined, type=undefined){
         var divPro = $('<div>').addClass('col-1-1 msg-prompt');
-        // new user or deleted user 
+        // new user or deleted user
         if (user !== undefined){
             if (type === 'new'){
                 divPro.append($('<span>').text(user + ' has joined the chat. '));
@@ -208,7 +210,7 @@
         // loop users
         for (var user of clientList){
             divPro.append($('<span>').text(user.name ).addClass('userspan'));
-        }        
+        }
         $('#messages').append(divPro);
         updateMessageList();
     };

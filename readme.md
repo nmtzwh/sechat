@@ -22,6 +22,8 @@ node app.js
 - [x] browser notifications
 - [ ] mobile friendly design (font size & screen size)
 - [ ] multi-line inputs
-- [x] send/receive images (url) 
+- [x] send/receive images (url)
 - [ ] send/receive files (security concerns)
 - [ ] custom themes
+- [x] add emoji support ([emoji-parser](https://github.com/frissdiegurke/emoji-parser))
+- [ ] simplify/minify js bundle (`browserify -t debowerify  clientjs/chat.js -o public/javascripts/chat_new.js`)

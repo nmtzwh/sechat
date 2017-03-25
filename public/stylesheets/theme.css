@@ -44,16 +44,24 @@ body {
     text-align: left;
 }
 
-.msg-content img{
+.msg-content > img{
     /*display: table-cell;*/
     width: 90%;
     text-align: left;
+}
+.msg-content > span > img{
+    /* emoji images css */
+    width: 1em;
 }
 
 .msg-prompt{
     font-weight: bold;
     color: #458588;
     /*text-align: left;*/
+}
+
+.msg-prompt a, .msg-prompt a:hover, .msg-prompt a:visited{
+    color: #458588;
 }
 
 .userspan{
