@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "npm run client && node ./app.js",
+    "client": "browserify -t debowerify clientjs/chat.js | node_modules/uglify-js/bin/uglifyjs -o public/javascripts/chat_new.js"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -16,6 +17,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "socket.io": "^1.7.3"
+    "socket.io": "^1.7.3",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony"
   }
 }
