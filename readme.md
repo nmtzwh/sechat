@@ -20,7 +20,7 @@ node app.js
 - [ ] multiple chat rooms
 - [ ] connection fail problem (unstable network)
 - [x] browser notifications
-- [ ] mobile friendly design (font size & screen size)
+- [x] mobile friendly design (font size & screen size)
 - [ ] multi-line inputs
 - [x] send/receive images (url)
 - [ ] send/receive files (security concerns)

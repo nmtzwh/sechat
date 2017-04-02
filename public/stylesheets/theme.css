@@ -135,8 +135,18 @@ form button {
     .msg-info {
         text-align: left;
     }
+    #messages {
+        width: 95%;
+    }
+    #input-wrap{
+        width: 95%;
+    }
     #messages div {
-        padding: 1px 1px;
+        padding: 0;
+        margin: 2px;
+    }
+    #messages .msg-content{
+        padding-left: 2em;
     }
 }
 
