@@ -293,8 +293,8 @@ $(function () {
       promptMessage('+ Message \':smile:\' for emoji: <a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/" target="_blank">cheat sheet</a> ');
   }
 
-  $('#message-wrap').on( "click", function() {
-      $('#input-wrap form input').focus();
-  });
+    $('#input-wrap').on( "click", function() {
+        $('#input-wrap form input').focus();
+    });
 
 });
