@@ -4,7 +4,8 @@
 /*@import "compass/css3";*/
 
 * {
-  -webkit-transition: all 1s;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   /*margin: 10%;
   padding: 1em;
   box-sizing: border-box;*/
