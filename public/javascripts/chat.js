@@ -286,7 +286,7 @@ console.log(parseEmoji('This is a :telephone: :smiley[:D]:', 'http://example.com
         promptMessage('+ Message \'![image_name](image_url)\' for sending images');
     }
 
-    $('#message-wrap').on( "click", function() {
+    $('#input-wrap').on( "click", function() {
         $('#input-wrap form input').focus();
     });
 
