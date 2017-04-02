@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run client && node ./app.js",
+    "start": "node ./app.js",
     "client": "browserify -t debowerify clientjs/chat.js | node_modules/uglify-js/bin/uglifyjs -o public/javascripts/chat_new.js"
   },
   "dependencies": {

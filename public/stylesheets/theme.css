@@ -135,6 +135,9 @@ form button {
     .msg-info {
         text-align: left;
     }
+    #messages div {
+        padding: 1px 1px;
+    }
 }
 
 
