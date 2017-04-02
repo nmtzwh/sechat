@@ -177,7 +177,7 @@
 @media handheld, only screen and (max-width: 767px) {
 	.grid {
 		width: 100%;
-		min-width: 0;
+		min-width: 0;  
 		margin-left: 0;
 		margin-right: 0;
 		padding-left: 20px; /* grid-space to left */
