@@ -14,7 +14,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 // encryption
-var crypto = require('crypto');
+// var crypto = require('crypto');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -13,7 +13,7 @@ node app.js
 
 + [socket.io](https://socket.io/) for client-server io.
 + [express](https://expressjs.com/) for web server.
-+ [crypto-browserify](https://github.com/crypto-browserify/crypto-browserify) for diffie-hellman key exchange and aes encryption.
++ [Crypto Web API](https://developer.mozilla.org/en-US/docs/Web/API/Crypto) for diffie-hellman key exchange and aes encryption.
 
 ## todo list
 
